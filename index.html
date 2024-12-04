@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación de Truck González</title>
+
+    <!-- Enlace a Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: #333;
+            background-image: url('https://img.freepik.com/foto-gratis/fondo-mesa-navidad-vacia-arbol-navidad-fuera-foco-montaje-exhibicion-productos_74952-1779.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: none; /* Ocultar la invitación al inicio */
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        .welcome-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 24px;
+            flex-direction: column;
+        }
+
+        .welcome-screen button {
+            padding: 12px 25px;
+            font-size: 18px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .header img {
+            max-width: 120px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.384);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #d32f2f;
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .audio-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ubicacion img {
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .adornos img {
+            position: absolute;
+            width: 200px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.568);
+            border-radius: 10px;
+        }
+
+        .adorno-1 { top: 0px; left: 10px; }
+        .adorno-2 { top: 10px; right: 10px; }
+        .adorno-3 { bottom: 0px; left: 40px; }
+        .adorno-4 { bottom: 10px; right: 40px; }
+
+        .mensaje-cierre {
+            font-size: 18px;
+            font-family: 'Playfair Display', serif;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .mensaje-cierre p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+
+        .mensaje-cierre strong {
+            color: #d32f2f;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px; /* Aún más pequeño en pantallas extra pequeñas */
+            }
+
+            .details {
+                font-size: 14px;
+            }
+
+            .button {
+                padding: 8px 15px; /* Ajuste más para botones pequeños */
+                font-size: 14px;
+            }
+
+            .audio-container {
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Adornos -->
+<div class="adornos">
+    <img src="five-christmas-balls-removebg-preview.png" class="adorno-1" alt="Adorno esquina superior izquierda">
+    <img src="christmas-wreath-removebg-preview.png" class="adorno-2" alt="Adorno esquina superior derecha">
+    <img src="front-view-red-candle-lighting-isolated-melting-light-fire-flame-removebg-preview.png" class="adorno-3" alt="Adorno esquina inferior izquierda">
+    <img src="present-boxes-front-christmas-tree-removebg-preview.png" class="adorno-4" alt="Adorno esquina inferior derecha">
+</div>
+
+<!-- Pantalla de bienvenida -->
+<div class="welcome-screen" id="welcomeScreen">
+    <p>¡Bienvenido a la invitación de Truck González!</p>
+    <p>Haz clic en el botón para comenzar y disfrutar de la música.</p>
+    <button onclick="startInvitation()">Ingresar</button>
+</div>
+
+<!-- Contenido principal de la invitación -->
+<div class="container" id="invitationContent">
+    <div class="header">
+        <img src="logo.png" alt="Logo del evento">
+    </div>
+
+    <h1>Truck González te invita a ti y a tu familia</h1>
+    <div class="details">
+        <p><strong>Celebración de Fin de Año</strong></p>
+        <p><strong>21 de Diciembre del 2024</strong></p>
+        <p>Misa de Acción de Gracias: <strong>13:45 hrs</strong></p>
+        <p>Nos encantaría verte ahí</p>
+    </div>
+
+    <div class="ubicacion">
+        <img src="terreno.png" alt="Lugar de la fiesta">
+    </div>
+
+    <a href="https://maps.app.goo.gl/LKpmXthwqhiCzFbU7" target="_blank" class="button">Presiona aquí para ver la ubicación</a>
+
+    <!-- Mensaje de cierre -->
+    <div class="mensaje-cierre">
+        <p><strong>Este año, cada entrega, cada viaje y cada meta alcanzada fueron posibles gracias a Dios y a ti.</strong></p>
+        <p>En <strong>Truck González</strong>, valoramos profundamente tu confianza y dedicación.</p>
+        <p>Juntos hemos recorrido grandes distancias, y hoy queremos detenernos para agradecerte.</p>
+        <p><strong>Que esta Navidad esté llena de alegría, amor y descanso merecido,</strong></p>
+        <p>y que el Año Nuevo te traiga nuevos caminos por explorar,</p>
+        <p><strong>siempre con éxito y bienestar en cada trayecto.</strong></p>
+        <p><strong>¡Gracias por ser parte de nuestra familia!</strong></p>
+        <p>Te esperamos para celebrar juntos el cierre de este maravilloso año.</p>
+    </div>
+</div>
+
+<!-- Reproductor de música oculto -->
+<audio id="invitationAudio" loop>
+    <source src="Noche-De-Paz.mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+</audio>
+
+<script>
+    function startInvitation() {
+        // Ocultar la pantalla de bienvenida y mostrar la invitación
+        document.getElementById('welcomeScreen').style.display = 'none';
+        document.getElementById('invitationContent').style.display = 'block';
+
+        // Iniciar la reproducción de la música
+        var audio = document.getElementById('invitationAudio');
+        audio.play().then(() => {
+            console.log("La música comenzó a reproducirse.");
+        }).catch(error => {
+            console.log("Error en la reproducción de audio:", error);
+        });
+    }
+</script>
+
+<footer>
+    Invitación creada por Truck González para ti y tu familia.
+</footer>
+
+</body>
+</html>
